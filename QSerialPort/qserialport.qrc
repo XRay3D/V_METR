@@ -1,8 +1,0 @@
-﻿<RCC>
-    <qresource prefix="/">
-        <file>play.png</file>
-        <file>stop.png</file>
-        <file>off.png</file>
-        <file>on.png</file>
-    </qresource>
-</RCC>
