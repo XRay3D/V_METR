@@ -9,6 +9,8 @@ TableView::TableView(QWidget* parent)
 {
     resize(1200, 300);
     setItemDelegate(new CellWidget);
+    verticalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 }
 
 void TableView::hideEvent(QHideEvent* event)
@@ -17,12 +19,12 @@ void TableView::hideEvent(QHideEvent* event)
     deleteLater();
 }
 
-void TableView::showEvent(QShowEvent* event)
-{
-    for (int i = 0; i < model()->columnCount(); ++i) {
-        setColumnWidth(i, (width() - verticalHeader()->width()) / model()->columnCount());
-    }
-    for (int i = 0; i < model()->rowCount(); ++i) {
-        setRowHeight(i, (height() - horizontalHeader()->height()) / model()->rowCount());
-    }
-}
+//void TableView::showEvent(QShowEvent* event)
+//{
+////    for (int i = 0; i < model()->columnCount(); ++i) {
+////        setColumnWidth(i, (width() - verticalHeader()->width()) / model()->columnCount());
+////    }
+////    for (int i = 0; i < model()->rowCount(); ++i) {
+////        setRowHeight(i, (height() - horizontalHeader()->height()) / model()->rowCount());
+////    }
+//}

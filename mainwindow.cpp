@@ -78,6 +78,8 @@ MainWindow::MainWindow(QMainWindow* parent)
 {
     ui->setupUi(this);
     ui->tableView->setModel(new MyTableModel(ui->tableView));
+    ui->tableView->verticalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+    ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     connect(&m_resizeTimer, &QTimer::timeout, [&] { ui->tableView->resizeRowsToContents(); });
 
     //    TiRead = new QTimer(this);
@@ -223,7 +225,7 @@ void MainWindow::contextMenuEvent(QContextMenuEvent* event)
         str.append("\r\n");
         for (int row = 0; row < model()->rowCount(QModelIndex()); ++row) {
             for (int col = 0; col < model()->columnCount(QModelIndex()); ++col) {
-                str.append(QString::number(model()->getData(col, row)).replace('.',',') + '\t');
+                str.append(QString::number(model()->getData(col, row)).replace('.', ',') + '\t');
             }
             str.append("\r\n");
         }
@@ -237,5 +239,5 @@ void MainWindow::on_pbLayout_clicked()
 {
     TableView* v = new TableView();
     v->setModel(new LayoutModel(model(), v));
-    v->show();
+    v->showMaximized();
 }

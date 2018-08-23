@@ -54,6 +54,9 @@ public:
         painter->drawText(r, str, QTextOption(Qt::AlignTop | Qt::AlignHCenter));
 
         painter->restore();
+        str = QString::number((index.column() + index.row() * 12) + 1);
+        painter->drawText(r, str, QTextOption(Qt::AlignCenter));
+
         painter->drawText(r, QString::number(index.data().toDouble()), QTextOption(Qt::AlignBottom | Qt::AlignHCenter));
 
         //        else
@@ -86,7 +89,7 @@ public slots:
     // QWidget interface
 protected:
     void hideEvent(QHideEvent* event) override;
-    void showEvent(QShowEvent* event) override;
+    //    void showEvent(QShowEvent* event) override;
 };
 
 #endif // TABLEVIEW_H

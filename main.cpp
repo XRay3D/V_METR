@@ -9,6 +9,9 @@ int main(int argc, char* argv[])
 
     a.setOrganizationName("XrSoft");
     a.setApplicationName("V_METR");
+    QFont f;
+    f.setPointSize(14);
+    a.setFont(f);
     mi mi_;
     Q_UNUSED(mi_)
 

@@ -33,12 +33,12 @@ MyTableModel::~MyTableModel()
     file.write(reinterpret_cast<const char*>(m_data), sizeof(m_data));
 }
 
-int MyTableModel::rowCount(const QModelIndex& parent) const
+int MyTableModel::rowCount(const QModelIndex& /*parent*/) const
 {
     return 64;
 }
 
-int MyTableModel::columnCount(const QModelIndex& parent) const
+int MyTableModel::columnCount(const QModelIndex& /*parent*/) const
 {
     return 3; //m_columnCount;
 }
